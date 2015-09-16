@@ -11,8 +11,12 @@ Next, make sure docker isn't running:
 Then run this command to specify which DNS for docker to use (important for this build):
 
     sudo docker -d --dns=*your dns here*
+    
+Next, we need to get the latest Ubuntu base image from docker. In another terminal instance, run:
 
-Next up, in another terminal instance, clone this git into a folder, cd into it, and simply run 
+    docker pull ubuntu
+
+Next up, clone this git into a folder, cd into it, and simply run 
 
     sudo docker build --no-cache -t biomaj-docker .
 
