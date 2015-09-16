@@ -1,5 +1,5 @@
 # biomaj-docker
-A suite containing biomaj, biomaj-watcher, and all of their dependencies in a docker. Just build, launch, and connect to the IP specified in the console in your browser.
+A suite containing biomaj, biomaj-watcher, and all of their dependencies in a docker. Just build, launch, and connect to the IP specified in the console in your browser. This docker exclusively uses the developer.ini method of connecting to BioMAJ.
 
 # Setting up
 First you need to install docker. Simply follow the instructions for your OS here: https://docs.docker.com/installation/
