@@ -1,0 +1,3 @@
+use biomaj
+use biomaj_celery
+exit
