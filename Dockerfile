@@ -6,7 +6,7 @@
 FROM ubuntu
 
 #make a new user, call the user bio
-RUN echo 'pwd' | sudo adduser bio
+RUN sudo adduser bio
 
 #install some dependencies
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ vivid universe" | sudo tee -a "/etc/apt/sources.list"
