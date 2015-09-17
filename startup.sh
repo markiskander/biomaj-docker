@@ -15,4 +15,5 @@ cd /home/bio/biomaj/biomaj-watcher/db
 python seed.py --config /home/bio/biomaj/global.properties --user bio --pwd maj &
 cd /home/bio/biomaj/biomaj-watcher
 su -c  'pserve development.ini' -s /bin/bash bio &
+su -c  'pceleryd development.ini' -s /bin/bash bio &
 wait

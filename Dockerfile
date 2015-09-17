@@ -47,10 +47,6 @@ RUN sed -i -e 's/us.archive.ubuntu.com/archive.ubuntu.com/g' /etc/apt/sources.li
 RUN apt-get update
 RUN apt-get install curl
 
-#install pycurl
-RUN easy_install pycurl
-RUN pip install pycurl
-
 #install updated copy of nodejs and build-essential just in case
 RUN curl sL https://deb.nodesource.com/setup | sudo bash -
 RUN apt-get install build-essential
@@ -64,6 +60,12 @@ RUN cd /home/bio/biomaj/biomaj-watcher && python setup.py develop
 
 #add config file
 ADD ./development.ini /home/bio/biomaj/biomaj-watcher/development.ini
+
+#enforce admin privileges for biomaj-watcher
+RUN cd /home/bio/biomaj/biomaj-watcher && sed -i -e 's@admin = admin@admin=bio@g' development.ini
+
+#enforce requirement version match
+RUN cd /home/bio/biomaj/biomaj && sed -i -e 's@mock@mock==1.0.1@g' requirements.txt && sed -i -e 's@nose@nose==1.3.4@g' requirements.txt && sed -i -e 's@pymongo@pymongo==2.7.2@g' requirements.txt && sed -i -e 's@pycurl@pycurl==7.19.5@g' requirements.txt
 
 #run the startup and begin
 CMD ["/usr/bin/startup"]
