@@ -3,10 +3,15 @@ A suite containing biomaj, biomaj-watcher, and all of their dependencies in a do
 
 # Quickly get started with the default settings
 If you're ok with the following defaults, you can simply download the built docker image straight from DockerHub to avoid waiting for a build:
+
 **Default Ubuntu account name**: bio
+
 **Default username**: bio
+
 **Default password**: maj
+
 **Default wait time on startup**: 64 seconds total (to make sure services get fully started before proceeding)
+
 **Default launch behavior**: pserve and pceleryd development.ini, offer no terminal access (quickly get started with biomaj-watcher). If you want terminal access and would prefer launching pserve/pceleryd commands by yourself (or perhaps launch the production.ini instead), then you'll have to edit the startup file.
 
 If you're fine with these defaults and just want to get started quickly without having to build the docker from scratch, then simply run this command:
