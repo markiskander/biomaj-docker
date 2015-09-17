@@ -31,6 +31,8 @@ Startup takes about one minute (artificial delays enforced in order to make sure
 
 After a minute, BioMAJ Watcher should be up and running. Simply enter the IP specified in the console with a port of 6543 in order to launch the site.
 
+To close biomaj-docker, simply close the terminal instance (this kills the process)
+
 # Default credentials
 By default, this docker uses **bio** as default username and **maj** as default password. This can be changed in *startup.sh* on line 15.
 
