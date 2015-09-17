@@ -41,6 +41,7 @@ ADD ./bower_components /home/bio/biomaj/biomaj-watcher/biomajwatcher/webapp/app/
 ADD ./startup.sh /usr/bin/startup
 RUN chmod +x /usr/bin/startup
 ADD ./mongocommands /home/bio/biomaj/
+ADD ./requirements.txt /home/bio/biomaj/biomaj/requirements.txt
 
 #install a repo for curl and install curl:
 RUN sed -i -e 's/us.archive.ubuntu.com/archive.ubuntu.com/g' /etc/apt/sources.list
@@ -61,11 +62,8 @@ RUN cd /home/bio/biomaj/biomaj-watcher && python setup.py develop
 #add config file
 ADD ./development.ini /home/bio/biomaj/biomaj-watcher/development.ini
 
-#enforce admin privileges for biomaj-watcher
-RUN cd /home/bio/biomaj/biomaj-watcher && sed -i -e 's@admin = admin@admin=bio@g' development.ini
-
 #enforce requirement version match
-RUN cd /home/bio/biomaj/biomaj && sed -i -e 's@mock@mock==1.0.1@g' requirements.txt && sed -i -e 's@nose@nose==1.3.4@g' requirements.txt && sed -i -e 's@pymongo@pymongo==2.7.2@g' requirements.txt && sed -i -e 's@pycurl@pycurl==7.19.5@g' requirements.txt
+RUN cd /home/bio/biomaj/biomaj && 
 
 #run the startup and begin
 CMD ["/usr/bin/startup"]
