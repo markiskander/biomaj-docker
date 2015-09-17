@@ -27,10 +27,14 @@ To run this package, simply use the following command:
 
     sudo docker run biomaj-docker
 
+Startup takes about one minute (artificial delays enforced in order to make sure the service is running before we try to access the database)
+
 # Default credentials
 By default, this docker uses **bio** as default username and **maj** as default password. This can be changed in *startup.sh* on line 15.
 
 # Potential issues
 If upon running the docker, you get a mongo connection refused error, it might be because mongod is taking long to start up. the startup file has a 60 second wait by default to make sure mongod starts. On some machines this may not be sufficient. If so, simply edit the line "sleep 60" to "sleep 90" or so in startup.sh in your biomaj-docker folder.
+
+On the other hand, if you have a faster machine, mongod might finish within seconds. In that case, you can modify the startup.sh to lessen the wait.
 
 If there are any changes made to biomaj and/or biomaj-watcher by their maintainers, back up your files and simply rebuild the docker; the Dockerfile always pulls the latest available copy of biomaj and biomaj-watcher from their git repos.
