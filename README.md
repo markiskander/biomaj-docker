@@ -16,7 +16,7 @@ If you're ok with the following defaults, you can simply download the built dock
 
 If you're fine with these defaults and just want to get started quickly without having to build the docker from scratch, then simply run this command:
 
-    sudo docker pull markiskander/biomaj-docker
+    sudo docker pull markiskander/biomaj-docker:version1
 
 If you want to change some settings or build from scratch, refer to **Setting up**. Otherwise, skip ahead to **Running biomaj-docker**.
 
