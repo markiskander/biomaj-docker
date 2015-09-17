@@ -1,6 +1,20 @@
 # biomaj-docker
 A suite containing biomaj, biomaj-watcher, and all of their dependencies in a docker. Just build, launch, and connect to the IP specified in the console in your browser. This docker exclusively uses the developer.ini method of connecting to BioMAJ.
 
+# Quickly get started with the default settings
+If you're ok with the following defaults, you can simply download the built docker image straight from DockerHub to avoid waiting for a build:
+**Default Ubuntu account name**: bio
+**Default username**: bio
+**Default password**: maj
+**Default wait time on startup**: 64 seconds total (to make sure services get fully started before proceeding)
+**Default launch behavior**: pserve and pceleryd development.ini, offer no terminal access (quickly get started with biomaj-watcher). If you want terminal access and would prefer launching pserve/pceleryd commands by yourself (or perhaps launch the production.ini instead), then you'll have to edit the startup file.
+
+If you're fine with these defaults and just want to get started quickly without having to build the docker from scratch, then simply run this command:
+
+    sudo docker pull markiskander/biomaj-docker
+
+If you want to change some settings or build from scratch, refer to the following section. Otherwise, skip ahead to **Running biomaj-docker**.
+
 # Setting up
 First you need to install docker. Simply follow the instructions for your OS here: https://docs.docker.com/installation/
 
@@ -20,9 +34,9 @@ Next up, clone this git into a folder, cd into it, and simply run
 
     sudo docker build --no-cache -t biomaj-docker .
 
-The build can take anywhere from 15-25 minutes (lots of packages to fetch from various repos).
+The build can take anywhere from 10-25 minutes (lots of packages to fetch from various repos, so it depends greatly on your computer and internet speeds.)
 
-# Running
+# Running biomaj-docker
 To run this package, simply use the following command: 
 
     sudo docker run biomaj-docker
