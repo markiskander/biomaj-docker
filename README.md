@@ -18,7 +18,7 @@ If you're fine with these defaults and just want to get started quickly without 
 
     sudo docker pull markiskander/biomaj-docker
 
-If you want to change some settings or build from scratch, refer to the following section. Otherwise, skip ahead to **Running biomaj-docker**.
+If you want to change some settings or build from scratch, refer to **Setting up**. Otherwise, skip ahead to **Running biomaj-docker**.
 
 # Setting up
 First you need to install docker. Simply follow the instructions for your OS here: https://docs.docker.com/installation/
