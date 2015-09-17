@@ -60,10 +60,7 @@ RUN cd /home/bio/biomaj/biomaj && python setup.py install
 RUN cd /home/bio/biomaj/biomaj-watcher && python setup.py develop
 
 #add config file
-ADD ./development.ini /home/bio/biomaj/biomaj-watcher/development.ini
-
-#enforce requirement version match
-RUN cd /home/bio/biomaj/biomaj && 
+ADD ./development.ini /home/bio/biomaj/biomaj-watcher/development.ini 
 
 #run the startup and begin
 CMD ["/usr/bin/startup"]
