@@ -42,6 +42,7 @@ ADD ./startup.sh /usr/bin/startup
 RUN chmod +x /usr/bin/startup
 ADD ./mongocommands /home/bio/biomaj/
 ADD ./requirements.txt /home/bio/biomaj/biomaj/requirements.txt
+ADD cd /home/bio/biomaj && mkdir etc && mkdir log && mkdir process && mkdir cache && mkdir banks
 
 #install a repo for curl and install curl:
 RUN sed -i -e 's/us.archive.ubuntu.com/archive.ubuntu.com/g' /etc/apt/sources.list
