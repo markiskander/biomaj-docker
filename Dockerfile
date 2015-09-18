@@ -6,7 +6,8 @@
 FROM ubuntu
 
 #make a new user, call the user bio
-RUN sudo adduser bio
+RUN adduser --disabled-password bio
+RUN adduser bio sudo
 
 #install some dependencies
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ vivid universe" | sudo tee -a "/etc/apt/sources.list"
