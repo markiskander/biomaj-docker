@@ -42,7 +42,6 @@ ADD ./startup.sh /usr/bin/startup
 RUN chmod +x /usr/bin/startup
 ADD ./mongocommands /home/bio/biomaj/
 ADD ./requirements.txt /home/bio/biomaj/biomaj/requirements.txt
-ADD cd /home/bio/biomaj && mkdir etc && mkdir log && mkdir process && mkdir cache && mkdir banks
 
 #install a repo for curl and install curl:
 RUN sed -i -e 's/us.archive.ubuntu.com/archive.ubuntu.com/g' /etc/apt/sources.list
@@ -59,6 +58,7 @@ RUN wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 #install biomaj
 RUN cd /home/bio/biomaj/biomaj && python setup.py install
 RUN cd /home/bio/biomaj/biomaj-watcher && python setup.py develop
+RUN cd /home/bio/biomaj/ && mkdir etc && mkdir log && mkdir process && mkdir cache && mkdir banks
 
 #add config file
 ADD ./development.ini /home/bio/biomaj/biomaj-watcher/development.ini 
