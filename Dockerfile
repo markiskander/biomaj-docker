@@ -60,6 +60,7 @@ RUN wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 RUN cd /home/bio/biomaj/biomaj && python setup.py install
 RUN cd /home/bio/biomaj/biomaj-watcher && python setup.py develop
 RUN cd /home/bio/biomaj/ && mkdir etc && mkdir log && mkdir process && mkdir cache && mkdir banks
+RUN cd /home/bio/ && chown -R bio biomaj
 
 #add config file
 ADD ./development.ini /home/bio/biomaj/biomaj-watcher/development.ini 
