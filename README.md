@@ -31,7 +31,7 @@ To run this package, simply use the following command:
 
     sudo docker-compose up
 
-Startup takes significantly less time than the standard biomaj-docker method (without docker-compose). There is only an artificial delay of 10 seconds in the startup. Once the console specifies an IP that you can connect to, the server should be up and running and accessible through your web browser. Use port 6543 in order to launch the site.
+Startup takes significantly less time than the standard biomaj-docker method (without docker-compose). There is only an artificial delay of 20 seconds in the startup. Once the console specifies an IP that you can connect to, the server should be up and running and accessible through your web browser. Use port 6543 in order to launch the site.
 
 To close biomaj-docker, simply close the terminal instance (this kills the process) or CTRL-C it.
 
