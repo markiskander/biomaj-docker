@@ -1,6 +1,8 @@
 # biomaj-docker
 A suite containing biomaj, biomaj-watcher, and all of their dependencies in a docker. Just build, launch, and connect to the IP specified in the console in your browser. This docker exclusively uses the developer.ini method of connecting to BioMAJ.
 
+Note: A docker-compose version is available in the 'docker-compose-version' branch. That branch has biomaj and biomaj-watcher running in one container and mongoDB running in the other. It's technically 'cleaner,' and I do recommend that one for general use, but this one works as well so it's up to you.
+
 # Quickly get started with the default settings
 If you're ok with the following defaults, you can simply download the built docker image straight from DockerHub to avoid waiting for a build:
 
