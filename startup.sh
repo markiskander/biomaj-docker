@@ -6,7 +6,7 @@ sed -i -e 's@mongodb://localhost:27017@mongodb://'$MONGO_PORT_27017_TCP_ADDR':'$
 cd /home/bio/biomaj/biomaj/bin
 python biomaj-cli.py --config /home/bio/biomaj/global.properties &
 cd /home/bio/biomaj/biomaj-watcher/db
-sleep 10
+sleep 20
 python seed.py --config /home/bio/biomaj/global.properties --user bio --pwd maj &
 cd /home/bio/biomaj/biomaj-watcher
 su -c  'pserve development.ini' -s /bin/bash bio &
