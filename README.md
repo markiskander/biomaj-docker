@@ -44,7 +44,7 @@ The build can take anywhere from 10-25 minutes (lots of packages to fetch from v
 # Running biomaj-docker
 To run this package, simply use the following command: 
 
-    sudo docker run markiskander/biomaj-docker
+    sudo docker run biomaj-docker
 
 Startup takes about one minute (artificial delays enforced in order to make sure the service is running before we try to access the database)
 
