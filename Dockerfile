@@ -28,13 +28,6 @@ RUN apt-get update && apt-get install -y \
 #install pip
 RUN easy_install pip
 
-#install and configure mongoDB
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-RUN echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-RUN apt-get update
-RUN apt-get install -y mongodb-org
-RUN mkdir -p /data/db
-
 #copy the files over
 RUN cd /home/bio/ && mkdir biomaj && cd biomaj && git clone https://github.com/genouest/biomaj.git && git clone https://github.com/genouest/biomaj-watcher.git
 ADD ./global.properties /home/bio/biomaj/global.properties

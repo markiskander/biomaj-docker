@@ -1,0 +1,13 @@
+web:
+  build: .
+  ports:
+   - "6543:6543"
+  volumes:
+   - .:/code
+  links:
+   - mongo
+mongo:
+  image: mongo
+  command: mongod
+  ports:
+   - "27017:27017"

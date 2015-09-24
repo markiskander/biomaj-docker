@@ -1,5 +1,5 @@
 # biomaj-docker
-A suite containing biomaj, biomaj-watcher, and all of their dependencies in a docker. Just build, launch, and connect to the IP specified in the console in your browser. This docker exclusively uses the developer.ini method of connecting to BioMAJ.
+A suite containing biomaj, biomaj-watcher, and all of their dependencies in two docker containers, one for biomaj, and one for the database side of things. Just build, launch, and connect to the IP specified in the console in your browser. This docker exclusively uses the developer.ini method of connecting to BioMAJ.
 
 **Note**: A docker-compose version is available in the 'docker-compose-version' branch. That branch has biomaj and biomaj-watcher running in one container and mongoDB running in the other. It's technically 'cleaner,' and I do recommend that one for general use, but this one works as well so it's up to you.
 
@@ -32,34 +32,32 @@ Next, make sure docker isn't running:
 Then run this command to specify which DNS for docker to use (important for this build):
 
     sudo docker -d --dns=*your dns here*
-    
+
 Next, we need to get the latest Ubuntu base image from docker. In another terminal instance, run:
 
     docker pull ubuntu
 
-Next up, clone this git into a folder, cd into it, and simply run 
+Next, we need to install Docker-Compose. To do so, run:
 
-    sudo docker build --no-cache -t biomaj-docker .
+    sudo pip install -U docker-compose
+
+Next up, clone this git into a folder (referring to this specific branch, using -b), cd into it, and simply run
+
+    sudo docker-compose build
 
 The build can take anywhere from 10-25 minutes (lots of packages to fetch from various repos, so it depends greatly on your computer and internet speeds.)
 
-# Running biomaj-docker
-To run this package, simply use the following command: 
+# Running biomaj-docker (docker-compose version)
+To run this package, simply use the following command:
 
-    sudo docker run markiskander/biomaj-docker
+    sudo docker-compose up
 
-Startup takes about one minute (artificial delays enforced in order to make sure the service is running before we try to access the database)
+Once the console specifies an IP that you can connect to, the server should be up and running and accessible through your web browser. Use port 6543 in order to launch the site.
 
-After a minute, BioMAJ Watcher should be up and running. Simply enter the IP specified in the console with a port of 6543 in order to launch the site.
-
-To close biomaj-docker, simply close the terminal instance (this kills the process)
+To close biomaj-docker, simply close the terminal instance (this kills the process) or CTRL-C it.
 
 # Default credentials
-By default, this docker uses **bio** as default username and **maj** as default password. This can be changed in *startup.sh* on line 15.
+By default, this docker uses **bio** as default username and **maj** as default password. This can be changed in *startup.sh* on line 10.
 
 # Potential issues
-If upon running the docker, you get a mongo connection refused error, it might be because mongod is taking long to start up. the startup file has a 60 second wait by default to make sure mongod starts. On some machines this may not be sufficient. If so, simply edit the line "sleep 60" to "sleep 90" or so in startup.sh in your biomaj-docker folder.
-
-On the other hand, if you have a faster machine, mongod might finish within seconds. In that case, you can modify the startup.sh to lessen the wait.
-
 If there are any changes made to biomaj and/or biomaj-watcher by their maintainers, back up your files and simply rebuild the docker; the Dockerfile always pulls the latest available copy of biomaj and biomaj-watcher from their git repos.
