@@ -27,7 +27,7 @@ To run this package, simply use the following command:
 
     sudo docker-compose up
 
-Once the console specifies an IP that you can connect to, the server should be up and running and accessible through your web browser. Use port 6543 in order to launch the site.
+Once the console specifies that it is accepting connections, the server should be up and running and accessible through your web browser through the address **0.0.0.0:6543**.
 
 To close biomaj-docker, simply close the terminal instance (this kills the process) or CTRL-C it.
 
